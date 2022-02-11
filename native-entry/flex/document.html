@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flex Doc</title>
+  <style>
+    .main-flex {
+      width: 100%;
+      margin: 5px;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .flex-container {
+      width: 400px;
+      height: 100px;
+      border: 1px solid #000;
+      display: flex;
+      margin: 10px;
+    }
+
+    .flex-item {
+      width: 90px;
+      height: 50px;
+      border: 1px solid blue;
+    }
+    .item {
+      width: 90px;
+      border: 1px solid blue;
+    }
+
+    .align-content>.flex-container {
+      height: 120px;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="main-container">
+    <!-- 主轴方向 -->
+    <h3>flex-direction: row | row-reverse | column | column-reverse;</h3>
+    <div class="main-flex">
+      <div class="flex-container" style="flex-direction: row">
+        <div class="flex-item">1</div>
+        <div class="flex-item">2</div>
+      </div>
+      <div class="flex-container" style="flex-direction: row-reverse">
+        <div class="flex-item">1</div>
+        <div class="flex-item">2</div>
+      </div>
+      <div class="flex-container" style="flex-direction: column">
+        <div class="flex-item">1</div>
+        <div class="flex-item">2</div>
+      </div>
+      <div class="flex-container" style="flex-direction: column-reverse">
+        <div class="flex-item">1</div>
+        <div class="flex-item">2</div>
+      </div>
+    </div>
+
+     <!-- 主轴排列方式（换行） -->
+     <h3>flex-wrap: nowrap | wrap | wrap-reverse;</h3>
+     <div class="main-flex">
+       <div class="flex-container" style="flex-wrap: nowrap;">
+         <div class="flex-item">1</div>
+         <div class="flex-item">2</div>
+       </div>
+       <div class="flex-container" style="flex-wrap: nowrap;">
+         <div class="flex-item">1</div>
+         <div class="flex-item">2</div>
+         <div class="flex-item">3</div>
+         <div class="flex-item">4</div>
+         <div class="flex-item">5</div>
+         <div class="flex-item">6</div>
+         <div class="flex-item">7</div>
+         <div class="flex-item">8</div>
+       </div>
+       <div class="flex-container" style="flex-wrap: wrap;">
+         <div class="flex-item">1</div>
+         <div class="flex-item">2</div>
+         <div class="flex-item">3</div>
+         <div class="flex-item">4</div>
+         <div class="flex-item">5</div>
+         <div class="flex-item">6</div>
+         <div class="flex-item">7</div>
+         <div class="flex-item">8</div>
+       </div>
+       <div class="flex-container" style="flex-wrap: wrap-reverse;">
+         <div class="flex-item">1</div>
+         <div class="flex-item">2</div>
+         <div class="flex-item">3</div>
+         <div class="flex-item">4</div>
+         <div class="flex-item">5</div>
+         <div class="flex-item">6</div>
+         <div class="flex-item">7</div>
+         <div class="flex-item">8</div>
+       </div>
+     </div>
+
+    <!-- 主轴对齐方式 -->
+    <h3>justify-content: flex-start | flex-end | center | space-between | space-around; </h3>
+    <div class="main-flex">
+      <div class="flex-container" style="justify-content: flex-start">
+        <div class="flex-item">1</div>
+        <div class="flex-item">2</div>
+      </div>
+      <div class="flex-container" style="justify-content: flex-end">
+        <div class="flex-item">1</div>
+        <div class="flex-item">2</div>
+      </div>
+      <div class="flex-container" style="justify-content: center">
+        <div class="flex-item">1</div>
+        <div class="flex-item">2</div>
+      </div>
+      <div class="flex-container" style="justify-content: space-between">
+        <div class="flex-item">
+          <button>1</button>
+          <button>2</button>
+        </div>
+        <div class="flex-item" style="text-align: right;">
+          <button>3</button>
+          <button>4</button>
+        </div>
+      </div>
+      <div class="main-flex">
+        <div class="flex-container" style="justify-content: space-around;">
+          <div class="flex-item">1</div>
+          <div class="flex-item">2</div>
+          <div class="flex-item">3</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 交叉轴对齐方式 -->
+    <h3>align-items: flex-start | flex-end | center | baseline | stretch; </h3>
+    <div class="main-flex">
+      <div class="flex-container" style="align-items: flex-start;">
+        <div class="flex-item">1</div>
+        <div class="flex-item">2</div>
+        <div class="flex-item">3</div>
+      </div>
+      <div class="flex-container" style="align-items: flex-start;">
+        <div class="flex-item">1</div>
+        <div class="flex-item">2</div>
+        <div class="flex-item" style="height: auto;">3</div>
+      </div>
+      <div class="flex-container" style="align-items: flex-end;">
+        <div class="flex-item">1</div>
+        <div class="flex-item">2</div>
+        <div class="flex-item" style="height: 60px;">3</div>
+      </div>
+      <div class="flex-container" style="align-items: center;">
+        <div class="flex-item">50px</div>
+        <div class="flex-item" style="height: 60px;">60px</div>
+        <div class="flex-item" style="height: auto;">auto</div>
+      </div>
+      <div class="flex-container" style="align-items: baseline;">
+        <div class="flex-item">1</div>
+        <div class="flex-item" style="padding-top: 10px;">2</div>
+        <div class="flex-item" style="height: 60px; padding-top: 16px;">第一行文字对齐</div>
+      </div>
+      <div class="flex-container" style="align-items: stretch;">
+        <div class="flex-item">50px</div>
+        <div class="flex-item" style="height: 60px;">60px</div>
+        <div class="flex-item" style="height: auto;">auto</div>
+      </div>
+    </div>
+
+    <!-- 交叉轴项目分布 -->
+    <h3>align-content: flex-start | flex-end | center | space-between | space-around | stretch; </h3>
+    <div class="main-flex align-content">
+      <div class="flex-container" style="align-content: flex-start">
+        <div class="flex-item">1</div>
+        <div class="flex-item">2</div>
+        <div class="flex-item">3</div>
+        <div class="flex-item">4</div>
+        <div class="flex-item">5</div>
+        <div class="flex-item">6</div>
+      </div>
+      <div class="flex-container" style="align-content: flex-end">
+        <div class="flex-item">1</div>
+        <div class="flex-item">2</div>
+        <div class="flex-item">3</div>
+        <div class="flex-item">4</div>
+        <div class="flex-item">5</div>
+        <div class="flex-item">6</div>
+      </div>
+      <div class="flex-container" style="align-content: center">
+        <div class="flex-item">1</div>
+        <div class="flex-item">2</div>
+        <div class="flex-item">3</div>
+        <div class="flex-item">4</div>
+        <div class="flex-item">5</div>
+        <div class="flex-item">6</div>
+      </div>
+      <div class="flex-container" style="align-content: space-between">
+        <div class="flex-item">1</div>
+        <div class="flex-item">2</div>
+        <div class="flex-item">3</div>
+        <div class="flex-item">4</div>
+        <div class="flex-item">5</div>
+        <div class="flex-item">6</div>
+      </div>
+      <div class="flex-container" style="align-content: space-around">
+        <div class="flex-item">1</div>
+        <div class="flex-item">2</div>
+        <div class="flex-item">3</div>
+        <div class="flex-item">4</div>
+        <div class="flex-item">5</div>
+        <div class="flex-item">6</div>
+      </div>
+      <div class="flex-container" style="align-content: stretch">
+        <div class="flex-item">1</div>
+        <div class="flex-item">2</div>
+        <div class="flex-item">3</div>
+        <div class="flex-item">4</div>
+        <div class="flex-item">5</div>
+        <div class="flex-item" style="height: auto;">6</div>
+      </div>
+    </div>
+
+    <!-- 固定宽度 + 自动撑开剩余宽度 -->
+    <h3>flex-grow</h3>
+    <div class="main-flex">
+      <div class="flex-container">
+        <div class="flex-item" style="flex-grow: 0;">固定 0</div>
+        <div class="flex-item" style="flex-grow: 0;">固定 0</div>
+      </div>
+      <div class="flex-container">
+        <div class="flex-item" style="flex-grow: 1;">自动撑开 1</div>
+        <div class="flex-item">固定 0</div>
+      </div>
+      <div class="flex-container">
+        <div class="flex-item">固定 0</div>
+        <div class="flex-item" style="flex-grow: 1;">自动撑开 1</div>
+      </div>
+      <div class="flex-container">
+        <div class="flex-item">固定 0</div>
+        <div class="flex-item" style="flex-grow: 1;">自动撑开 1</div>
+        <div class="flex-item">固定 0</div>
+      </div>
+    </div>
+
+    <!-- 宽度不够，如何分配 -->
+    <h3>flex-shrink</h3>
+    <div class="main-flex">
+      <div class="flex-container">
+        <div class="flex-item" style="flex-shrink: 1;">1</div>
+        <div class="flex-item" style="flex-shrink: 1;">1</div>
+        <div class="flex-item" style="flex-shrink: 1;">1</div>
+        <div class="flex-item" style="flex-shrink: 1;">1</div>
+      </div>
+      <div class="flex-container">
+        <div class="flex-item" style="flex-shrink: 1;">1</div>
+        <div class="flex-item" style="flex-shrink: 1;">1</div>
+        <div class="flex-item" style="flex-shrink: 1;">1</div>
+        <div class="flex-item" style="flex-shrink: 1;">1</div>
+        <div class="flex-item" style="flex-shrink: 1;">1</div>
+      </div>
+      <div class="flex-container">
+        <div class="flex-item" style="flex-shrink: 0;">0</div>
+        <div class="flex-item" style="flex-shrink: 1;">1</div>
+        <div class="flex-item" style="flex-shrink: 1;">1</div>
+        <div class="flex-item" style="flex-shrink: 1;">1</div>
+        <div class="flex-item" style="flex-shrink: 1;">1</div>
+      </div>
+      <div class="flex-container">
+        <div class="flex-item" style="flex-shrink: 0;">0</div>
+        <div class="flex-item" style="flex-shrink: 1;">1</div>
+        <div class="flex-item" style="flex-shrink: 1;">1</div>
+        <div class="flex-item" style="flex-shrink: 1;">1</div>
+        <div class="flex-item" style="flex-shrink: 1;">1</div>
+        <div class="flex-item" style="flex-shrink: 2;">2</div>
+        <div class="flex-item" style="flex-shrink: 2;">2</div>
+      </div>
+    </div>
+
+    <!-- 设置 item 宽度 -->
+    <h3>flex-basis</h3>
+    <div class="main-flex">
+      <div class="flex-container">
+        <div class="flex-item" style="flex-basis: auto;">auto</div>
+        <div class="flex-item" style="flex-basis: auto;">auto</div>
+        <div class="flex-item" style="flex-basis: auto;">auto</div>
+        <div class="flex-item" style="flex-basis: auto;">auto</div>
+      </div>
+      <div class="flex-container">
+        <div class="flex-item" style="flex-basis: 24%;">24%</div>
+        <div class="flex-item" style="flex-basis: 24%;">24%</div>
+        <div class="flex-item" style="flex-basis: 24%;">24%</div>
+        <div class="flex-item" style="flex-basis: 24%;">24%</div>
+      </div>
+      <div class="flex-container">
+        <div class="flex-item" style="flex-basis: 24%;">24%</div>
+        <div class="flex-item" style="flex-basis: 24%;">24%</div>
+        <div class="flex-item" style="flex-basis: 24%;">24%</div>
+        <div class="flex-item" style="flex-basis: 24%;">24%</div>
+        <div class="flex-item" style="flex-basis: 24%;">24%</div>
+      </div>
+    </div>
+
+    <h3>order</h3>
+    <div class="main-flex">
+      <div class="flex-container">
+        <div class="flex-item">0</div>
+        <div class="flex-item">0</div>
+        <div class="flex-item">0</div>
+      </div>
+      <div class="flex-container">
+        <div class="flex-item">order: 0</div>
+        <div class="flex-item" style="order: -1;">order: -1</div>
+        <div class="flex-item">order: 0</div>
+      </div>
+    </div>
+
+    <h3>align-self</h3>
+    <div class="main-flex">
+      <div class="flex-container">
+        <div class="flex-item" style="align-self: auto;"></div>
+        <div class="flex-item" style="align-self: auto;"></div>
+        <div class="flex-item" style="align-self: auto;"></div>
+      </div>
+      <div class="flex-container">
+        <div class="flex-item" style="align-self: auto;"></div>
+        <div class="flex-item" style="align-self: center;">center</div>
+        <div class="flex-item" style="align-self: auto;"></div>
+      </div>
+      <div class="flex-container">
+        <div class="flex-item" style="align-self: auto;"></div>
+        <div class="flex-item" style="align-self: end;">end</div>
+        <div class="flex-item" style="align-self: auto;"></div>
+      </div>
+    </div>
+
+    <!-- 默认配置 -->
+    <h3>默认配置</h3>
+
+    <div style="display: flex; height: 60px; border: 1px solid #000;">
+      <div class="item">aaa</div>
+      <div class="item">aaa bbb</div>
+      <div class="item">aaa bbb ccc</div>
+    </div>
+
+    <div class="main-flex">
+      <div class="flex-container">
+        <div class="flex-item"></div>
+        <div class="flex-item"></div>
+      </div>
+      <div class="flex-container">
+        <div class="flex-item"></div>
+        <div class="flex-item"></div>
+        <div class="flex-item"></div>
+        <div class="flex-item"></div>
+        <div class="flex-item"></div>
+      </div>
+      <div class="flex-container">
+        <div class="flex-item"></div>
+        <div class="flex-item"></div>
+        <div class="flex-item"></div>
+        <div class="flex-item"></div>
+        <div class="flex-item"></div>
+        <div class="flex-item"></div>
+        <div class="flex-item"></div>
+        <div class="flex-item"></div>
+        <div class="flex-item"></div>
+        <div class="flex-item"></div>
+      </div>
+      <div class="flex-container" style="flex-wrap: wrap;">
+        <div class="flex-item"></div>
+        <div class="flex-item"></div>
+        <div class="flex-item"></div>
+        <div class="flex-item"></div>
+        <div class="flex-item"></div>
+        <div class="flex-item"></div>
+      </div>
+    </div>
+
+  </div>
+</body>
+
+</html>
