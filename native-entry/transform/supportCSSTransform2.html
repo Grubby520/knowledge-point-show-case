@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transform</title>
+  <style>
+    .main {
+      width: 100%;
+      height: 90vh;
+      border: 1px solid #000;
+    }
+
+    .container {
+      width: 600px;
+      height: 600px;
+      border: 1px solid blue;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="main" style="transform: scale(0.9)">
+    <div id="container">
+    </div>
+    <div>
+      <button id="btn1">transform change</button>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="https://unpkg.com/@antv/s2@latest/dist/index.min.js"></script>
+  <script>
+    const s2options = {
+      width: 600,
+      height: 600
+    }
+
+    const s2DataConfig = {
+      describe: '标准交叉表数据。',
+      fields: {
+        rows: ['province', 'city'],
+        columns: ['type', 'sub_type'],
+        values: ['number', 'price'],
+        valueInCols: true,
+      },
+      meta: [
+        {
+          field: 'number',
+          name: '数量',
+        },
+        {
+          field: 'price',
+          name: '价格',
+        },
+        {
+          field: 'province',
+          name: '省份',
+        },
+        {
+          field: 'city',
+          name: '城市',
+        },
+        {
+          field: 'type',
+          name: '类别',
+        },
+        {
+          field: 'sub_type',
+          name: '子类别',
+        },
+      ],
+      data: [
+        {
+          number: 7789,
+          price: 7789,
+          province: '浙江省',
+          city: '杭州市',
+          type: '家具',
+          sub_type: '桌子',
+        },
+        {
+          number: 2367,
+          price: 2367,
+          province: '浙江省',
+          city: '绍兴市',
+          type: '家具',
+          sub_type: '桌子',
+        },
+        {
+          number: 5343,
+          price: 5343,
+          province: '浙江省',
+          city: '杭州市',
+          type: '家具',
+          sub_type: '沙发',
+        },
+        {
+          number: 632,
+          price: 632,
+          province: '浙江省',
+          city: '绍兴市',
+          type: '家具',
+          sub_type: '沙发',
+        },
+        {
+          number: 945,
+          price: 945,
+          province: '浙江省',
+          city: '杭州市',
+          type: '办公用品',
+          sub_type: '笔',
+        },
+        {
+          number: 1304,
+          price: 1304,
+          province: '浙江省',
+          city: '绍兴市',
+          type: '办公用品',
+          sub_type: '笔',
+        },
+        {
+          number: 1343,
+          price: 1343,
+          province: '浙江省',
+          city: '杭州市',
+          type: '办公用品',
+          sub_type: '纸张',
+        },
+        {
+          number: 1354,
+          price: 1354,
+          province: '浙江省',
+          city: '绍兴市',
+          type: '办公用品',
+          sub_type: '纸张',
+        },
+        {
+          number: 1723,
+          price: 1723,
+          province: '四川省',
+          city: '成都市',
+          type: '家具',
+          sub_type: '桌子',
+        },
+        {
+          number: 1822,
+          price: 1822,
+          province: '四川省',
+          city: '绵阳市',
+          type: '家具',
+          sub_type: '桌子',
+        },
+        {
+          number: 2451,
+          price: 2451,
+          province: '四川省',
+          city: '成都市',
+          type: '家具',
+          sub_type: '沙发',
+        },
+        {
+          number: 2244,
+          price: 2244,
+          province: '四川省',
+          city: '绵阳市',
+          type: '家具',
+          sub_type: '沙发',
+        },
+        {
+          number: 2335,
+          price: 2335,
+          province: '四川省',
+          city: '成都市',
+          type: '办公用品',
+          sub_type: '笔',
+        },
+        {
+          number: 245,
+          price: 245,
+          province: '四川省',
+          city: '绵阳市',
+          type: '办公用品',
+          sub_type: '笔',
+        },
+        {
+          number: 4004,
+          price: 4004,
+          province: '四川省',
+          city: '成都市',
+          type: '办公用品',
+          sub_type: '纸张',
+        },
+        {
+          number: 3077,
+          price: 3077,
+          province: '四川省',
+          city: '绵阳市',
+          type: '办公用品',
+          sub_type: '纸张',
+        },
+      ],
+    }
+
+    const container = document.getElementById('container')
+
+    const { PivotSheet } = S2
+
+    const s2 = new PivotSheet(container, s2DataConfig, {
+      ...s2options,
+      supportCSSTransform: true
+    })
+
+    s2.render()
+
+    // try changeSize
+    const btn1 = document.getElementById('btn1')
+    btn1.addEventListener('click', () => {
+      const scale = 0.9
+      s2.changeSize(s2options.width * scale, s2options.height * scale)
+      s2.render(false)
+    })
+  </script>
+</body>
+
+</html>
